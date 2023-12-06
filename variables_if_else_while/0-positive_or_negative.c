@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
-#include <stdio.h>  // Added to include standard input/output functions
+#include <stdio.h>  /*  Added to include standard input/output functions */
 
 /* more headers goes there */
 
@@ -13,7 +13,7 @@ int main(void)
     n = rand() - RAND_MAX / 2;
     /* your code goes there */
 
-    // Check if the number is positive, negative, or zero
+    /* Check if the number is positive, negative, or zero */
     if (n > 0)
     {
         printf("%d is positive\n", n);
