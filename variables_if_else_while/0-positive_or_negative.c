@@ -1,32 +1,31 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>  // Added to include standard input/output functions
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+/* more headers goes there */
+
+/* betty style doc for function main goes there */
 int main(void)
 {
     int n;
 
-    // Seed the random number generator with the current time
     srand(time(0));
-
-    // Use the last digits of the current time as a random value
-    n = time(0) % 200 - 100;
-
-    // Print the random number
-    printf("%d ", n);
+    n = rand() - RAND_MAX / 2;
+    /* your code goes there */
 
     // Check if the number is positive, negative, or zero
     if (n > 0)
-        printf("is positive\n");
+    {
+        printf("%d is positive\n", n);
+    }
     else if (n < 0)
-        printf("is negative\n");
+    {
+        printf("%d is negative\n", n);
+    }
     else
-        printf("is zero\n");
+    {
+        printf("0 is zero\n");
+    }
 
     return (0);
 }
