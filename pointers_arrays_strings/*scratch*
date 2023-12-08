@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include "main.h"
+
+// Function to swap the values of two integers
+void swap_int(int *a, int *b)
+{
+    int temp = *a;  // Store the value of a in a temporary variable
+    *a = *b;        // Set the value of a to the value of b
+    *b = temp;      // Set the value of b to the value stored in the temporary variable
+}
+
+// main.c file
+#include "main.h"
+
+int main(void)
+{
+    int a = 98;
+    int b = 42;
+
+    printf("a=%d, b=%d\n", a, b);
+    swap_int(&a, &b);
+    printf("a=%d, b=%d\n", a, b);
+
+    return (0);
+}
