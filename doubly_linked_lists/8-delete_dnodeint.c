@@ -14,7 +14,7 @@ dlistint_t *current, *temp;
 unsigned int i;
 
 if (*head == NULL)
-return( -1);
+return (-1);
 
 current = *head;
 
