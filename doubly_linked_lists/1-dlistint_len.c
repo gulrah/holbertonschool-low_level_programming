@@ -12,8 +12,8 @@ size_t node_count = 0;
 
 while (h != NULL)
 {
-  h = h->next;
-  node_count++;
+h = h->next;
+node_count++;
 }
 
 return (node_count);
