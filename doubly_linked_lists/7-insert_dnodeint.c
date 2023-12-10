@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - Inserts a new node at a given position in a dlistint_t list.
+ * insert_dnodeint_at_index - Inserts a new node at a given position.
  * @h: A pointer to the address of the head of the doubly linked list.
- * @idx: The index of the list where the new node should be added. Index starts at 0.
+ * @idx: The index of the list where the new node should be added.
  * @n: The data to be added to the new node.
  *
  * Return: The address of the new node, or NULL if it failed.
