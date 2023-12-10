@@ -15,7 +15,7 @@ unsigned int i = 0;
 
 /* If index is 0, add at the beginning */
 if (idx == 0)
-return add_dnodeint(h, n);
+return (add_dnodeint(h, n));
 
 /* Find the node at the previous index */
 while (temp != NULL && i < idx - 1)
@@ -26,12 +26,12 @@ i++;
 
 /* If the index is out of bounds, return NULL */
 if (temp == NULL)
-return NULL;
+return (NULL);
 
 /* Create a new node */
 new_node = malloc(sizeof(dlistint_t));
 if (new_node == NULL)
-return NULL;
+return (NULL);
 
 /* Update the new node's data and pointers */
 new_node->n = n;
