@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
   char *program_name;
 
   if (argc != 2) {
-        printf("%s", argv[0]);
+        printf("%s" ERROR, argv[0]);
         return 1;  /* Indicate an error */
     }
 
