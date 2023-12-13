@@ -6,11 +6,12 @@
 /**
  * error_exit - Print an error message to stderr and exit with a specific code.
  * @msg: The error message to print.
+ * @file: The name of the file causing the error.
  * @exit_code: The exit code to use.
  */
-void error_exit(const char *msg, int exit_code)
+void error_exit(const char *msg, const char *file, int exit_code)
 {
-    dprintf(STDERR_FILENO, "%s\n", msg);
+    dprintf(STDERR_FILENO, "%s %s\n", msg, file);
     exit(exit_code);
 }
 
@@ -27,28 +28,28 @@ int main(int argc, char *argv[])
     char buffer[1024];
 
     if (argc != 3)
-        error_exit("Usage: cp file_from file_to", 97);
+        error_exit("Usage: cp file_from file_to", "", 97);
 
     fd_from = open(argv[1], O_RDONLY);
     if (fd_from == -1)
-        error_exit("Error: Can't read from file", 98);
+        error_exit("Error: Can't read from file", argv[1], 98);
 
     fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
     if (fd_to == -1)
-        error_exit("Error: Can't write to file", 99);
+        error_exit("Error: Can't write to file", argv[2], 99);
 
     while ((read_result = read(fd_from, buffer, sizeof(buffer))) > 0)
     {
         write_result = write(fd_to, buffer, read_result);
         if (write_result == -1 || write_result != read_result)
-            error_exit("Error: Can't write to file", 99);
+            error_exit("Error: Can't write to file", argv[2], 99);
     }
 
     if (read_result == -1)
-        error_exit("Error: Can't read from file", 98);
+        error_exit("Error: Can't read from file", argv[1], 98);
 
     if (close(fd_from) == -1 || close(fd_to) == -1)
-        error_exit("Error: Can't close file descriptor", 100);
+        error_exit("Error: Can't close file descriptor", "", 100);
 
-    return (0);
+    return 0;
 }
