@@ -14,4 +14,6 @@ int append_text_to_file(const char *filename, char *text_content);
 
 /* Add more function prototypes as needed for subsequent tasks */
 
+void error_exit(int code, char *message, int fd);
+
 #endif /* MAIN_H */
