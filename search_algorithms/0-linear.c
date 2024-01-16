@@ -11,10 +11,12 @@
  */
 int linear_search(int *array, size_t size, int value)
 {
+  /* Linear search */
+    size_t i;
+
+    /* Check for NULL array */
     if (array == NULL)
         return -1;
-
-    size_t i;
 
     for (i = 0; i < size; i++)
     {
@@ -24,5 +26,5 @@ int linear_search(int *array, size_t size, int value)
             return i;
     }
 
-    return -1; 
+    return -1; /* Value not found */
 }
